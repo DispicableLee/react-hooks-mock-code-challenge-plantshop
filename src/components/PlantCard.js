@@ -1,18 +1,34 @@
-import React from "react";
+import React, {useState} from "react";
 
-function PlantCard() {
-  return (
-    <li className="card">
-      <img src={"https://via.placeholder.com/400"} alt={"plant name"} />
-      <h4>{"plant name"}</h4>
-      <p>Price: {"plant price"}</p>
-      {true ? (
-        <button className="primary">In Stock</button>
-      ) : (
-        <button>Out of Stock</button>
-      )}
-    </li>
-  );
-}
+function PlantCard( props ) {
+  const [stockText, setStockText] = useState("In Stock")
+  const [buttC, setButtC] = useState("primary")
+
+  function handleStock(e){
+    e.preventDefault()
+    if(e.target.value === "In Stock"){
+      setStockText("Out of Stock")
+      setButtC("")
+    }else if(e.target.value === "Out of Stock"){
+      setStockText("In Stock")
+      setButtC("primary")
+    }
+  }
+
+    return (
+      <li className="card">
+        <img src={props.image} alt={props.name} />
+        <h4>{props.name}</h4>
+        <p>Price: {props.price}</p>
+        <button 
+        onClick={handleStock}
+        key={props.id}
+        value={stockText}
+        className={buttC}
+        >{stockText}</button>
+      </li>
+    );
+  };
+
 
 export default PlantCard;

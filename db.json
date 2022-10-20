@@ -41,6 +41,12 @@
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "name": "CannaBonsai",
+      "image": "https://weedseedshop.com/blog/wp-content/uploads/2021/12/cannabonsai-1024x1024.jpg",
+      "price": "69.42",
+      "id": 8
     }
   ]
 }
